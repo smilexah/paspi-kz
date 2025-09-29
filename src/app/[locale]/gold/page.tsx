@@ -1,11 +1,11 @@
 "use client";
 
-import {FixedButton} from "@/components/gold/fixed-button";
 import {useEffect, useState} from "react";
 import {Feature, Features} from "@/components/features/Features";
 import {Stepper} from "@/components/stepper";
 import {QR} from "@/components/QR";
 import {Hero} from "@/components/hero";
+import {FixedActionBar} from "@/components/fixed-action-bar";
 
 const color = "#E4573D";
 
@@ -123,7 +123,7 @@ export default function GoldPage() {
         <>
             <main>
                 <Hero
-                    imageSrc="/gold/gold-main-v2.svg"
+                    imageSrc="/hero/gold-main-v2.svg"
                     imageAlt="Main Logo v2"
                     title="Kaspi Gold"
                     description={
@@ -153,7 +153,11 @@ export default function GoldPage() {
                     alt="Kaspi.kz Gold QR Code"
                 />
             </main>
-            <FixedButton isVisible={showFixedButton}/>
+            <FixedActionBar
+                isVisible={showFixedButton}
+                label="Открыть Kaspi Gold"
+                onClick={() => console.log("Kaspi Gold opened")}
+            />
         </>
     );
 }

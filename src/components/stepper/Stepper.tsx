@@ -25,6 +25,7 @@ export const Stepper = ({ title, steps, lineColor = "#E4573D" }: StepperProps) =
                     <div className="relative flex items-start justify-center">
                         {/* Линия между шагами */}
                         <div
+                            id="how-it-works"
                             className="absolute top-5 left-1/2 h-[2px] w-[180px] -translate-x-1/2"
                             style={{ backgroundColor: lineColor }}
                         />
