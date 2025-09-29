@@ -1,0 +1,1 @@
+export {KaspiShop} from "./KaspiShop";
