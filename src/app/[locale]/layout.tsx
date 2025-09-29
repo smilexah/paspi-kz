@@ -20,15 +20,15 @@ export default async function LocaleLayout({
                                                params,
                                            }: Readonly<{
     children: React.ReactNode;
-    params: { locale: Locale };
+    params: Promise<{ locale: string }>;
 }>) {
     const {locale} = await params;
 
     if (!routing.locales.includes(locale as Locale)) {
         notFound();
     }
-    const messages = await getMessages();
 
+    const messages = await getMessages();
 
     return (
         <html lang={locale}>
