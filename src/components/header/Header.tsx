@@ -75,7 +75,7 @@ export const Header = () => {
     };
 
     return (
-        <header className="flex flex-col">
+        <header className="flex flex-col sticky top-0 z-50 bg-white">
             <nav className="min-h-[48px] sm:min-h-[54px] md:min-h-[60px] w-full flex items-center bg-white relative">
                 <Container className="flex items-center justify-between relative">
                     {/* Лого */}
