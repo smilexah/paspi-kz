@@ -9,35 +9,40 @@ import React, { useRef, useState } from "react";
 type MenuKey = "clients" | "business" | "guide" | null;
 
 const CLIENTS_LEFT = [
-    "Kaspi Gold",
-    "Kaspi Gold для ребенка",
-    "Kaspi Red",
-    "Kaspi Депозит",
-    "Накопительный Депозит",
-    "Кредит на Покупки",
-    "Рассрочка",
-    "Кредит для ИП",
-    "Кредит Наличными",
-    "Автокредит на Kolesa.kz",
+    { text: "Kaspi Gold", href: "/gold" },
+    { text: "Kaspi Gold для ребенка", href: "/goldkid" },
+    { text: "Kaspi Red", href: "/kaspired" },
+    { text: "Kaspi Депозит", href: "/deposit" },
+    { text: "Накопительный Депозит", href: "/savedeposit" },
+    { text: "Кредит на Покупки", href: "/purchase" },
+    { text: "Рассрочка", href: "/installment" },
+    { text: "Кредит для ИП", href: "/cashkreditbiz" },
+    { text: "Кредит Наличными", href: "/cashkredit" },
+    { text: "Автокредит на Kolesa.kz", href: "/carcredit" },
 ];
 
 const CLIENTS_RIGHT = [
-    "Магазин",
-    "Travel",
-    "Платежи",
-    "Мой банк",
-    "Переводы",
-    "Акции",
-    "Госуслуги",
-    "Объявления",
-    "Kaspi Гид",
+    { text: "Магазин", href: "/shop" },
+    { text: "Travel", href: "/kaspitravel" },
+    { text: "Платежи", href: "/payments" },
+    { text: "Мой банк", href: "#", className: "invoke-mybank" },
+    { text: "Переводы", href: "/transfers" },
+    { text: "Акции", href: "#", className: "invoke-actions" },
+    { text: "Госуслуги", href: "#", className: "invoke-gos" },
+    { text: "Объявления", href: "#", className: "invoke-ads" },
+    { text: "Kaspi Гид", href: "https://guide.kaspi.kz/client/ru" },
 ];
 
-const BUSINESS_LEFT = ["Kaspi Pay", "Бизнес Кредит", "Кредит для ИП"];
+const BUSINESS_LEFT = [
+    { text: "Kaspi Pay", href: "/kaspipay" },
+    { text: "Бизнес Кредит", href: "/bizkredit" },
+    { text: "Кредит для ИП", href: "/cashkreditbiz" },
+];
+
 const BUSINESS_RIGHT = [
-    "Продавать в Интернет-магазине на Kaspi.kz",
-    "Принимать платежи с Kaspi.kz",
-    "Kaspi Гид",
+    { text: "Продавать в Интернет-магазине на Kaspi.kz", href: "/shop/merchant/registration/#!/landing" },
+    { text: "Принимать платежи с Kaspi.kz", href: "/webpay/partnership" },
+    { text: "Kaspi Гид", href: "https://guide.kaspi.kz/partner/ru" },
 ];
 
 function MenuLink({
@@ -170,7 +175,7 @@ export const Header = () => {
                                             </h4>
                                             <div className="flex flex-col gap-5">
                                                 {CLIENTS_LEFT.map((t) => (
-                                                    <MenuLink key={t}>{t}</MenuLink>
+                                                    <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
                                                 ))}
                                             </div>
                                         </div>
@@ -180,7 +185,7 @@ export const Header = () => {
                                             </h4>
                                             <div className="flex flex-col gap-5">
                                                 {CLIENTS_RIGHT.map((t) => (
-                                                    <MenuLink key={t}>{t}</MenuLink>
+                                                    <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
                                                 ))}
                                             </div>
                                         </div>
@@ -191,12 +196,12 @@ export const Header = () => {
                                     <div className="w-full flex justify-center">
                                         <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_LEFT.map((t) => (
-                                                <MenuLink key={t}>{t}</MenuLink>
+                                                <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
                                             ))}
                                         </div>
                                         <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_RIGHT.map((t) => (
-                                                <MenuLink key={t}>{t}</MenuLink>
+                                                <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
                                             ))}
                                         </div>
                                     </div>
@@ -205,8 +210,8 @@ export const Header = () => {
                                 {open === "guide" && (
                                     <div className="w-full flex justify-center">
                                         <div className="flex flex-col gap-5">
-                                            <MenuLink className="text-start" href="/guide/clients">Клиентам</MenuLink>
-                                            <MenuLink className="text-start" href="/guide/business">Бизнесу</MenuLink>
+                                            <MenuLink className="text-start" href="https://guide.kaspi.kz/client/ru">Клиентам</MenuLink>
+                                            <MenuLink className="text-start" href="https://guide.kaspi.kz/partner/ru">Бизнесу</MenuLink>
                                         </div>
                                     </div>
                                 )}
