@@ -43,14 +43,16 @@ const BUSINESS_RIGHT = [
 function MenuLink({
                       children,
                       href = "#",
+                      className = "",
                   }: {
     children: React.ReactNode;
     href?: string;
+    className?: string;
 }) {
     return (
         <Link
             href={href}
-            className="block text-[13px] md:text-[15px] leading-7 text-[#0006] hover:text-black"
+            className={`block text-[14px] leading-[18px] text-[#000] ${className}`}
         >
             {children}
         </Link>
@@ -78,7 +80,6 @@ export const Header = () => {
         <header className="flex flex-col sticky top-0 z-50 bg-white">
             <nav className="min-h-[48px] sm:min-h-[54px] md:min-h-[60px] w-full flex items-center bg-white relative">
                 <Container className="flex items-center justify-between relative">
-                    {/* Лого */}
                     <Link href="/" className="shrink-0">
                         <Image
                             src="/logo.svg"
@@ -89,7 +90,6 @@ export const Header = () => {
                         />
                     </Link>
 
-                    {/* Центр: пункты */}
                     <div className="flex items-center gap-10 md:gap-13">
                         <div
                             className="relative"
@@ -98,7 +98,7 @@ export const Header = () => {
                         >
                             <button
                                 className={
-                                    "text-[13px] transition " +
+                                    "text-[17px] transition " +
                                     (open === "clients"
                                         ? "text-black"
                                         : "text-[#0006] hover:text-black")
@@ -115,7 +115,7 @@ export const Header = () => {
                         >
                             <button
                                 className={
-                                    "text-[13px] transition " +
+                                    "text-[17px] transition " +
                                     (open === "business"
                                         ? "text-black"
                                         : "text-[#0006] hover:text-black")
@@ -132,7 +132,7 @@ export const Header = () => {
                         >
                             <button
                                 className={
-                                    "text-[13px] transition " +
+                                    "text-[17px] transition " +
                                     (open === "guide"
                                         ? "text-black"
                                         : "text-[#0006] hover:text-black")
@@ -143,10 +143,8 @@ export const Header = () => {
                         </div>
                     </div>
 
-                    {/* Справа: язык */}
                     <LangSwitcher />
 
-                    {/* ЕДИНСТВЕННЫЙ оверлей (контент меняется по open) */}
                     {open && (
                         <div
                             onMouseEnter={() => {
@@ -156,45 +154,47 @@ export const Header = () => {
                                 }
                             }}
                             onMouseLeave={scheduleClose}
-                            className={
-                                "absolute left-1/2 top-[calc(100%+10px)] -translate-x-1/2 z-50 " +
+                            className={ // -translate-x-1/2
+                                "absolute top-[calc(100%+20px)] z-50 animate-[rotateMenu_.35s_both] " +
                                 (open === "guide"
-                                    ? "w-[220px]"
-                                    : "w-[min(92vw,900px)] md:w-[min(92vw,900px)]")
+                                    ? "w-[195px] left-[calc(50%+100px)]"
+                                    : "w-[650px] left-[calc(50%-270px)]")
                             }
                         >
-                            <div className="bg-white rounded-2xl shadow-xl ring-1 ring-black/5 p-6 md:p-8">
+                            <div className="bg-white rounded-[16px] shadow-[0_.20833vw_1.04167vw_#00000014] py-[36px] px-[60px]">
                                 {open === "clients" && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                        <div>
-                                            <h4 className="font-semibold text-black mb-3">
+                                    <div className="w-full flex">
+                                        <div className="flex flex-col gap-6 flex-1">
+                                            <h4 className="font-semibold text-black">
                                                 Продукты Kaspi.kz
                                             </h4>
-                                            {CLIENTS_LEFT.map((t) => (
-                                                <MenuLink key={t}>{t}</MenuLink>
-                                            ))}
+                                            <div className="flex flex-col gap-5">
+                                                {CLIENTS_LEFT.map((t) => (
+                                                    <MenuLink key={t}>{t}</MenuLink>
+                                                ))}
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className="font-semibold text-black mb-3">
+                                        <div className="flex flex-col gap-6 flex-1">
+                                            <h4 className="font-semibold text-black">
                                                 Сервисы Kaspi.kz
                                             </h4>
-                                            {CLIENTS_RIGHT.map((t) => (
-                                                <MenuLink key={t}>{t}</MenuLink>
-                                            ))}
+                                            <div className="flex flex-col gap-5">
+                                                {CLIENTS_RIGHT.map((t) => (
+                                                    <MenuLink key={t}>{t}</MenuLink>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 )}
 
                                 {open === "business" && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                        <div>
-                                            <div className="h-6" />
+                                    <div className="w-full flex justify-center">
+                                        <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_LEFT.map((t) => (
                                                 <MenuLink key={t}>{t}</MenuLink>
                                             ))}
                                         </div>
-                                        <div>
-                                            <div className="h-6" />
+                                        <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_RIGHT.map((t) => (
                                                 <MenuLink key={t}>{t}</MenuLink>
                                             ))}
@@ -203,9 +203,11 @@ export const Header = () => {
                                 )}
 
                                 {open === "guide" && (
-                                    <div className="flex flex-col items-stretch">
-                                        <MenuLink>Клиентам</MenuLink>
-                                        <MenuLink>Бизнесу</MenuLink>
+                                    <div className="w-full flex justify-center">
+                                        <div className="flex flex-col gap-5">
+                                            <MenuLink className="text-start" href="/guide/clients">Клиентам</MenuLink>
+                                            <MenuLink className="text-start" href="/guide/business">Бизнесу</MenuLink>
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -213,6 +215,17 @@ export const Header = () => {
                     )}
                 </Container>
             </nav>
+
+            <style jsx>{`
+                @keyframes rotateMenu {
+                    0% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            `}</style>
         </header>
     );
 };
