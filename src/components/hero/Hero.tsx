@@ -31,6 +31,7 @@ export const Hero = ({
                 <p className="text-2xl leading-[26px]">{description}</p>
 
                 <button
+                    id={"hero-button"}
                     type="button"
                     onClick={onButtonClick}
                     className="block w-full max-w-[250px] h-[50px] rounded-[10px] font-medium bg-[#0089D0] py-2 text-sm leading-[19px] text-white"

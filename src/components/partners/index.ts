@@ -1,1 +1,1 @@
-export {Partners} from "./Partners";
+export {PartnersShowCase} from "./Partners";

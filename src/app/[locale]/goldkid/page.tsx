@@ -91,13 +91,13 @@ export default function GoldKidPage() {
 
     useEffect(() => {
         const update = () => {
-            const heading = document.getElementById("how-it-works");
+            const heading = document.getElementById("hero-button");
             if (!heading) return;
 
             const rect = heading.getBoundingClientRect();
-            // Кнопка видна, если мы "дошли" до заголовка и дальше:
-            // когда верх заголовка выше нижней границы экрана
-            setShowFixedButton(rect.top <= window.innerHeight);
+            // Кнопка видна, если hero-button НЕ виден на экране:
+            // когда верх заголовка выше верхней границы экрана (прокрутили мимо него)
+            setShowFixedButton(rect.top < 0);
         };
 
         update(); // первичный расчёт на монтировании

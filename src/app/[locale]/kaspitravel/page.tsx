@@ -7,7 +7,7 @@ import {QR} from "@/components/QR";
 import {Hero} from "@/components/hero";
 import {FixedActionBar} from "@/components/fixed-action-bar";
 import {PopularRoutes} from "@/components/popular-routes";
-import {Partners} from "@/components/partners";
+import {Partner, PartnersShowCase} from "@/components/partners/Partners";
 
 const color = "#E4573D";
 
@@ -75,6 +75,19 @@ const CartIcon: Feature["Icon"] = (props) => (
     </svg>
 );
 
+const PARTNERS: Partner[] = [
+    { name: "Air Astana", logo: "/partners/air-astana.svg" },
+    { name: "FlyArystan", logo: "/partners/fly-arystan.svg" },
+    { name: "Scat", logo: "/partners/scat.svg" },
+    { name: "Turkish Airlines", logo: "/partners/turkish_airlines.svg" },
+    { name: "Qazaq Air", logo: "/partners/qazaq-air.svg" },
+    { name: "Qatar Airways", logo: "/partners/qatar-airways.svg" },
+    { name: "FlyDubai", logo: "/partners/FlyDubai.png" },
+    { name: "Pegasus Airlines", logo: "/partners/Pegasus.svg" },
+    { name: "Uzbekistan Airways", logo: "/partners/Uzbekistan-Airways.svg" },
+    { name: "Lufthansa", logo: "/partners/Lufthansa.png" },
+];
+
 const ITEMS: Feature[] = [
     {title: "Тысячи направлений\n по низким ценам", Icon: ArrowSwapIcon},
     {title: "Быстрый возврат\n и обмен", Icon: TIcon},
@@ -95,13 +108,13 @@ export default function KaspiTravelPage() {
 
     useEffect(() => {
         const update = () => {
-            const heading = document.getElementById("how-it-works");
+            const heading = document.getElementById("hero-button");
             if (!heading) return;
 
             const rect = heading.getBoundingClientRect();
-            // Кнопка видна, если мы "дошли" до заголовка и дальше:
-            // когда верх заголовка выше нижней границы экрана
-            setShowFixedButton(rect.top <= window.innerHeight);
+            // Кнопка видна, если hero-button НЕ виден на экране:
+            // когда верх заголовка выше верхней границы экрана (прокрутили мимо него)
+            setShowFixedButton(rect.top < 0);
         };
 
         update(); // первичный расчёт на монтировании
@@ -154,7 +167,10 @@ export default function KaspiTravelPage() {
                     lineColor="#E4573D"
                 />
                 <PopularRoutes/>
-                <Partners/>
+                <PartnersShowCase
+                    subtitle={"более 1 500 компаний по всему миру"}
+                    partners={PARTNERS}
+                />
                 <QR
                     qrSrc="/QR/qr-link-travel-new.svg"
                     alt="Kaspi.kz Gold QR Code"
