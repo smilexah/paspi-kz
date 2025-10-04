@@ -1,11 +1,8 @@
-"use client";
-
-import {useEffect, useState} from "react";
-import {Feature, Features} from "@/components/features/Features";
-import {Stepper} from "@/components/stepper";
-import {QR} from "@/components/QR";
-import {Hero} from "@/components/hero";
-import {FixedActionBar} from "@/components/fixed-action-bar";
+import {Feature, Benefits} from "@/components/shared/benefits/Benefits";
+import {Hero} from "@/components/shared/hero";
+import {Stepper} from "@/components/shared/stepper";
+import {QR} from "@/components/shared/QR";
+import {FixedActionBar} from "@/components/shared/fixed-action-bar";
 
 const color = "#E4573D";
 
@@ -87,40 +84,6 @@ const steps = [
 ];
 
 export default function GoldKidPage() {
-    const [showFixedButton, setShowFixedButton] = useState(false);
-
-    useEffect(() => {
-        const update = () => {
-            const heading = document.getElementById("hero-button");
-            if (!heading) return;
-
-            const rect = heading.getBoundingClientRect();
-            // Кнопка видна, если hero-button НЕ виден на экране:
-            // когда верх заголовка выше верхней границы экрана (прокрутили мимо него)
-            setShowFixedButton(rect.top < 0);
-        };
-
-        update(); // первичный расчёт на монтировании
-        // Дешёвый, но надёжный слушатель: scroll/resize + rAF троттлинг
-        let ticking = false;
-        const onScrollOrResize = () => {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(() => {
-                update();
-                ticking = false;
-            });
-        };
-
-        window.addEventListener("scroll", onScrollOrResize, {passive: true});
-        window.addEventListener("resize", onScrollOrResize);
-
-        return () => {
-            window.removeEventListener("scroll", onScrollOrResize);
-            window.removeEventListener("resize", onScrollOrResize);
-        };
-    }, []);
-
     return (
         <>
             <main>
@@ -136,7 +99,7 @@ export default function GoldKidPage() {
                     buttonText="Открыть Kaspi Gold для ребенка"
                     onButtonClick={() => console.log("Kaspi Gold click")}
                 />
-                <Features
+                <Benefits
                     title={
                         <>
                             С Kaspi Gold для ребенка
@@ -156,9 +119,7 @@ export default function GoldKidPage() {
                 />
             </main>
             <FixedActionBar
-                isVisible={showFixedButton}
                 label="Открыть Kaspi Gold"
-                onClick={() => console.log("Kaspi Gold opened")}
             />
         </>
     );

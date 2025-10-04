@@ -1,0 +1,89 @@
+"use client";
+
+import {Benefits} from "../../../shared/benefits";
+import {Feature} from "@/components/shared/benefits/Benefits";
+
+const color = "#E4573D";
+
+const ArrowSwapIcon: Feature["Icon"] = (props) => (
+    <svg viewBox="0 0 64 64" {...props}>
+        <circle cx="32" cy="32" r="22" fill="none" stroke={color} strokeWidth="3"/>
+        <path
+            d="M18 26h20m0 0-4-4m4 4-4 4"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+        <path
+            d="M46 38H26m0 0 4 4m-4-4 4-4"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </svg>
+);
+
+const TIcon: Feature["Icon"] = (props) => (
+    <svg viewBox="0 0 64 64" {...props}>
+        <circle cx="32" cy="32" r="22" fill="none" stroke={color} strokeWidth="3"/>
+        <path
+            d="M22 26h20M32 26v16"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+            strokeLinecap="round"
+        />
+    </svg>
+);
+
+const CartIcon: Feature["Icon"] = (props) => (
+    <svg viewBox="0 0 64 64" {...props}>
+        <circle cx="32" cy="32" r="22" fill="none" stroke={color} strokeWidth="3"/>
+        <path
+            d="M22 28h20l-2 10H24l-2-10Z"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+            strokeLinejoin="round"
+        />
+        <circle
+            cx="26"
+            cy="42"
+            r="2.5"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+        />
+        <circle
+            cx="40"
+            cy="42"
+            r="2.5"
+            fill="none"
+            stroke={color}
+            strokeWidth="3"
+        />
+    </svg>
+);
+
+const ITEMS: Feature[] = [
+    {title: "Тысячи направлений\n по низким ценам", Icon: ArrowSwapIcon},
+    {title: "Быстрый возврат\n и обмен", Icon: TIcon},
+    {title: "Оплата с Kaspi Gold\n и в кредит", Icon: CartIcon},
+];
+
+export const TravelBenefits = () => {
+    return (
+        <Benefits
+            title={
+                <>
+                    Преимущества Kaspi Travel
+                </>
+            }
+            items={ITEMS}
+        />
+    )
+}

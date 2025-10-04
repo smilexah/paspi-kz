@@ -5,8 +5,8 @@ import {getMessages} from "next-intl/server";
 import {notFound} from "next/navigation";
 import "./globals.css";
 import React from "react";
-import {Header} from "@/components/header";
-import {Footer} from "@/components/footer";
+import {Header} from "@/components/shared/header";
+import {Footer} from "@/components/shared/footer";
 
 export const metadata: Metadata = {
     title: "Kaspi.kz",

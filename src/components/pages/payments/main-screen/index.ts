@@ -1,0 +1,1 @@
+export {PaymentsMainScreen} from "./PaymentsMainScreen";
