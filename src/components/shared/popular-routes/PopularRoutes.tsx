@@ -4,10 +4,9 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import { Container } from "../container";
+import {RouteT} from "@/types/route.t";
 
-type Route = { from: string; to: string; img: string; href?: string };
-
-const ROUTES: Route[] = [
+const ROUTES: RouteT[] = [
     { from: "Алматы", to: "Астана", img: "/destination/nur-sultan.png" },
     { from: "Астана", to: "Шымкент", img: "/destination/shymkent.png" },
     { from: "Алматы", to: "Шымкент", img: "/destination/shymkent-2.png" },
@@ -20,7 +19,7 @@ const ROUTES: Route[] = [
     { from: "Астана", to: "Туркестан", img: "/destination/turkestan.png" },
 ];
 
-function RouteCard({ r }: { r: Route }) {
+function RouteCard({ r }: { r: RouteT }) {
     // NBSP перед тире + перенос строки после тире
     const title = `${r.from}\u00A0–\n${r.to}`;
 
@@ -49,7 +48,7 @@ export const PopularRoutes = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: "start",
-        slidesToScroll: 5, // ← листаем по 5 карточек
+        slidesToScroll: 5,
     });
 
     const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);

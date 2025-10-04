@@ -3,11 +3,10 @@
 import Image from "next/image";
 import React from "react";
 import { Container } from "../container";
-
-export type Partner = { name: string; logo: string; };
+import {PartnerT} from "@/types/partner.t";
 
 type PartnerCardProps = {
-    partner: Partner;
+    partner: PartnerT;
     className?: string;
 };
 
@@ -33,7 +32,7 @@ export function PartnerCard({ partner, className }: PartnerCardProps) {
 }
 
 type PartnersGridProps = {
-    partners: Partner[];
+    partners: PartnerT[];
     className?: string;
 };
 
@@ -49,17 +48,17 @@ export function PartnersGrid({ partners, className }: PartnersGridProps) {
     );
 }
 
-type PartnersSectionProps = {
+type PartnersShowCaseProps = {
     title?: string;
     subtitle?: string;
-    partners: Partner[];
+    partners: PartnerT[];
 };
 
 export const PartnersShowCase = ({
                                     title = "Партнеры",
                                     subtitle,
                                     partners,
-                                }: PartnersSectionProps) => {
+                                }: PartnersShowCaseProps) => {
     return (
         <section className="bg-[#f5f5f5] py-10 md:py-14">
             <Container>

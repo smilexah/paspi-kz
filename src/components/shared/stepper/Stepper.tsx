@@ -1,15 +1,12 @@
 "use client";
 
 import { Container } from "../container";
-
-type Step = {
-    number: number;
-    text: string;
-};
+import React from "react";
+import {StepT} from "@/types/step.t";
 
 type StepperProps = {
     title: string | React.ReactNode;
-    steps: Step[];
+    steps: StepT[];
     lineColor?: string;
 };
 

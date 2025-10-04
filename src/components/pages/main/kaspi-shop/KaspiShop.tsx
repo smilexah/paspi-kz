@@ -4,10 +4,9 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import {useCallback, useMemo} from "react";
 import {Container} from "@/components/shared/container";
+import {CategoryT} from "@/types/category.t";
 
-type Cat = { title: string; img: string; href?: string };
-
-const CATEGORIES: Cat[] = [
+const CATEGORIES: CategoryT[] = [
     {title: "Телефоны,\nгаджеты", img: "/kaspi-shop/Phone.png"},
     {title: "Компьютеры", img: "/kaspi-shop/Computer.png"},
     {title: "Обувь", img: "/kaspi-shop/Shoes1.png"},
@@ -40,7 +39,7 @@ function chunk<T>(arr: T[], size: number): T[][] {
     return out;
 }
 
-function CategoryCard({cat}: { cat: Cat }) {
+function CategoryCard({cat}: { cat: CategoryT }) {
     return (
         <a
             href={cat.href || "#"}

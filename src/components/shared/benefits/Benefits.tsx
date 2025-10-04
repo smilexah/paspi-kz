@@ -1,16 +1,13 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {Container} from "@/components/shared/container";
-
-export type Feature = {
-    title: string;
-    Icon: React.FC<React.SVGProps<SVGSVGElement>>;
-};
+import {BenefitsT} from "@/types/benefits.t";
 
 type FeaturesProps = {
     title: React.ReactNode;
-    items: Feature[];
+    items: BenefitsT[];
 };
 
 export function Benefits({title, items}: FeaturesProps) {
@@ -22,14 +19,20 @@ export function Benefits({title, items}: FeaturesProps) {
                 </h2>
 
                 <div className="grid gap-4 md:grid-cols-3">
-                    {items.map(({title, Icon}, i) => (
+                    {items.map(({title, icon}, i) => (
                         <div
                             key={i}
                             className="rounded-3xl bg-white px-6 py-7 shadow-sm ring-1 ring-gray-200"
                         >
                             <div
                                 className="mx-auto flex h-[88px] w-[88px] items-center justify-center rounded-full bg-white">
-                                <Icon className="h-[64px] w-[64px]"/>
+                                <Image
+                                    src={icon}
+                                    alt={title}
+                                    width={64}
+                                    height={64}
+                                    className="h-[64px] w-[64px]"
+                                />
                             </div>
 
                             <p className="mt-4 text-center text-[18px] font-medium leading-6 text-gray-900">

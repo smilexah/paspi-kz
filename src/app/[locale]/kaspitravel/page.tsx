@@ -1,12 +1,13 @@
 import {QR} from "@/components/shared/QR";
 import {FixedActionBar} from "@/components/shared/fixed-action-bar";
 import {PopularRoutes} from "@/components/shared/popular-routes";
-import {Partner, PartnersShowCase} from "@/components/shared/partners/Partners";
+import {PartnersShowCase} from "@/components/shared/partners/Partners";
 import {TravelMainScreen} from "@/components/pages/kaspi-travel/main-screen";
 import {TravelBenefits} from "@/components/pages/kaspi-travel/benefits";
 import {TravelStepper} from "@/components/pages/kaspi-travel/stepper";
+import {PartnerT} from "@/types/partner.t";
 
-const PARTNERS: Partner[] = [
+const PARTNERS: PartnerT[] = [
     {name: "Air Astana", logo: "/partners/air-astana.svg"},
     {name: "FlyArystan", logo: "/partners/fly-arystan.svg"},
     {name: "Scat", logo: "/partners/scat.svg"},
