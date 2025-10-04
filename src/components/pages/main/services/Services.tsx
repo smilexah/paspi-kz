@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import {Service} from "@/types/service.t";
+import {ServiceT} from "@/types/service.t";
 import {Card} from "@/ui/card";
 
-const ITEMS: Service[] = [
+const ITEMS: ServiceT[] = [
     {
         href: "/shop",
         name: "Магазин",
@@ -90,23 +90,6 @@ export const Services = () => {
                     </div>
                 </div>
             </div>
-
-            <style jsx global>{`
-                @keyframes services-scroll {
-                    0% {
-                        transform: translateX(0%);
-                    }
-                    100% {
-                        transform: translateX(-33.333%);
-                    }
-                }
-
-                @media (prefers-reduced-motion: reduce) {
-                    .motion-reduce\\:animate-none {
-                        animation: none !important;
-                    }
-                }
-            `}</style>
         </section>
     );
 };

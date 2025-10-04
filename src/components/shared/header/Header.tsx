@@ -220,17 +220,6 @@ export const Header = () => {
                     )}
                 </Container>
             </nav>
-
-            <style jsx>{`
-                @keyframes rotateMenu {
-                    0% {
-                        opacity: 0;
-                    }
-                    100% {
-                        opacity: 1;
-                    }
-                }
-            `}</style>
         </header>
     );
 };

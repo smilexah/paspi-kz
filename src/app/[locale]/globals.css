@@ -28,3 +28,27 @@ html {
     line-height: 1.2;
     font-family: Roboto, sans-serif;
 }
+
+@keyframes services-scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-reduce\:animate-none {
+        animation: none !important;
+    }
+}
+
+@keyframes rotateMenu {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

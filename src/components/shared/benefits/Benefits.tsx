@@ -26,8 +26,8 @@ export function Benefits({title, items}: FeaturesProps) {
                         >
                             <div
                                 className="mx-auto flex h-[88px] w-[88px] items-center justify-center rounded-full bg-white">
-                                <Image
-                                    src={icon}
+                                <Image 
+                                    src={icon} 
                                     alt={title}
                                     width={64}
                                     height={64}
