@@ -1,0 +1,1 @@
+export {GoldKidQR} from "./GoldKidQR";

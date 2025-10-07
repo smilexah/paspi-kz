@@ -1,0 +1,1 @@
+export {GoldKidBenefits} from "./GoldKidBenefits";

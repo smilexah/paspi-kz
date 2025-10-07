@@ -1,0 +1,1 @@
+export {GoldKidStepper} from "./GoldKidStepper";

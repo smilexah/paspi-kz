@@ -1,0 +1,1 @@
+export {GoldMainScreen} from "./GoldMainScreen";
