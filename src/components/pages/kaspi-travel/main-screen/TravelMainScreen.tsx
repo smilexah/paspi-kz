@@ -13,8 +13,8 @@ export const TravelMainScreen = () => {
                     Авиа и ЖД билеты по выгодным ценам
                 </>
             }
-            buttonText="Найти билеты"
-            onButtonClick={() => console.log("Kaspi Gold click")}
+            primaryButtonText="Найти билеты"
+            onPrimaryClick={() => console.log("Kaspi Gold click")}
         />
     )
 }

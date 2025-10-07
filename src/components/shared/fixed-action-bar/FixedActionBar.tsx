@@ -1,13 +1,14 @@
 "use client";
 
 import {useRouter} from "next/navigation";
-import {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 
 interface FixedActionBarProps {
     label: string;
     className?: string;
     targetId?: string;
     href?: string;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const FixedActionBar = ({
@@ -15,6 +16,7 @@ export const FixedActionBar = ({
                                    className = "",
                                    targetId = "hero-button",
                                    href,
+                                   onClick,
                                }: FixedActionBarProps) => {
     const [visible, setVisible] = useState(false);
     const router = useRouter();
@@ -40,8 +42,12 @@ export const FixedActionBar = ({
 
     if (!visible) return null;
 
-    const handleClick = () => {
-        console.log("Kaspi Gold opened");
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClick) {
+            onClick(e);
+            return;
+        }
+
         if (href) router.push(href);
     };
 

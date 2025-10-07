@@ -1,0 +1,1 @@
+export {KaspiPayQR} from "./KaspiPayQR";

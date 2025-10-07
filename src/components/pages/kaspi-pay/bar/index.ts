@@ -1,0 +1,1 @@
+export {KaspiPayQRBar} from "./KaspiPayQRBar";

@@ -1,0 +1,1 @@
+export {KaspiPayBenefits} from "./KaspiPayBenefits";

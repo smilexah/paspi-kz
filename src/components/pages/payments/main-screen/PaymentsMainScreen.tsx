@@ -13,8 +13,8 @@ export const PaymentsMainScreen = () => {
                     Без комиссий, более 10 000 услуг
                 </>
             }
-            buttonText="Оплатить услуги"
-            onButtonClick={() => console.log("Kaspi Gold click")}
+            primaryButtonText="Оплатить услуги"
+            onPrimaryClick={() => console.log("Kaspi Gold click")}
         />
     )
 }

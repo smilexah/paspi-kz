@@ -18,7 +18,7 @@ export function Benefits({title, items}: FeaturesProps) {
                     {title}
                 </h2>
 
-                <div className="grid gap-4 md:grid-cols-3">
+                <div className="grid gap-4 md:grid-cols-4">
                     {items.map(({title, icon}, i) => (
                         <div
                             key={i}

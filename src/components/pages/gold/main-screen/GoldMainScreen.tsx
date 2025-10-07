@@ -13,8 +13,8 @@ export const GoldMainScreen = () => {
                     Покупки, переводы, платежи, <br/> снятия без комиссий
                 </>
             }
-            buttonText="Открыть Kaspi Gold"
-            onButtonClick={() => console.log("Kaspi Gold click")}
+            primaryButtonText="Открыть Kaspi Gold"
+            onPrimaryClick={() => console.log("Kaspi Gold click")}
         />
     )
 }
