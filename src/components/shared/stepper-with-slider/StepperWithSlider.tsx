@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
 import { Container } from "@/components/shared/container";
 
 type Step = {
@@ -22,15 +22,13 @@ const STEPS: Step[] = [
 ];
 
 export function StepperWithSlider() {
-    const options: EmblaOptionsType = {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: false,
         align: "start",
         containScroll: "trimSnaps",
-        slidesToScroll: 3,     // листаем по 3
+        slidesToScroll: 3,
         dragFree: false,
-    };
-
-    const [emblaRef, emblaApi] = useEmblaCarousel(options);
+    });
     const [canPrev, setCanPrev] = useState(false);
     const [canNext, setCanNext] = useState(false);
 
