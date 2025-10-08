@@ -3,6 +3,7 @@ import {KaspiPayQRBar} from "@/components/pages/kaspi-pay/bar";
 import {KaspiPayBenefits} from "@/components/pages/kaspi-pay/benefits";
 import {KaspiPayStepper} from "@/components/pages/kaspi-pay/stepper";
 import {KaspiPayQR} from "@/components/pages/kaspi-pay/qr";
+import {StepperWithSlider} from "@/components/shared/stepper-with-slider";
 
 export default function KaspiPayPage() {
     return (
@@ -11,6 +12,7 @@ export default function KaspiPayPage() {
                 <KaspiPayMainScreen/>
                 <KaspiPayBenefits/>
                 <KaspiPayStepper/>
+                <StepperWithSlider/>
                 <KaspiPayQR/>
             </main>
             <KaspiPayQRBar
