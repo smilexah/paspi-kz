@@ -10,7 +10,7 @@ type Step = {
     badge: string;
     title: string;
     subtitle: string;
-    imageSrc: string | any; // StaticImageData тоже ок
+    imageSrc: string; // StaticImageData тоже ок
     imageAlt: string;
 };
 
