@@ -18,11 +18,11 @@ export function Benefits({title, items}: FeaturesProps) {
                     {title}
                 </h2>
 
-                <div className="grid gap-4 md:grid-cols-4">
+                <div className="flex justify-center gap-4">
                     {items.map(({title, icon}, i) => (
                         <div
                             key={i}
-                            className="rounded-3xl bg-white px-6 py-7 shadow-sm ring-1 ring-gray-200"
+                            className="flex-1 rounded-3xl bg-white px-6 py-7 shadow-sm ring-1 ring-gray-200"
                         >
                             <div
                                 className="mx-auto flex h-[88px] w-[88px] items-center justify-center rounded-full bg-white">
