@@ -11,14 +11,14 @@ type MenuKey = "clients" | "business" | "guide" | null;
 const CLIENTS_LEFT = [
     { text: "Kaspi Gold", href: "/gold" },
     { text: "Kaspi Gold для ребенка", href: "/goldkid" },
-    { text: "Kaspi Red", href: "/kaspired" },
-    { text: "Kaspi Депозит", href: "/deposit" },
-    { text: "Накопительный Депозит", href: "/savedeposit" },
-    { text: "Кредит на Покупки", href: "/purchase" },
-    { text: "Рассрочка", href: "/installment" },
-    { text: "Кредит для ИП", href: "/cashkreditbiz" },
-    { text: "Кредит Наличными", href: "/cashkredit" },
-    { text: "Автокредит на Kolesa.kz", href: "/carcredit" },
+    { text: "Kaspi Red", href: "https://kaspi.kz/kaspired" },
+    { text: "Kaspi Депозит", href: "https://kaspi.kz/deposit" },
+    { text: "Накопительный Депозит", href: "https://kaspi.kz/savedeposit" },
+    { text: "Кредит на Покупки", href: "https://kaspi.kz/purchase" },
+    { text: "Рассрочка", href: "https://kaspi.kz/installment" },
+    { text: "Кредит для ИП", href: "https://kaspi.kz/cashkreditbiz" },
+    { text: "Кредит Наличными", href: "https://kaspi.kz/cashkredit" },
+    { text: "Автокредит на Kolesa.kz", href: "https://kaspi.kz/carcredit" },
 ];
 
 const CLIENTS_RIGHT = [
@@ -26,7 +26,7 @@ const CLIENTS_RIGHT = [
     { text: "Travel", href: "/kaspitravel" },
     { text: "Платежи", href: "/payments" },
     { text: "Мой банк", href: "#", className: "invoke-mybank" },
-    { text: "Переводы", href: "/transfers" },
+    { text: "Переводы", href: "https://kaspi.kz/transfers" },
     { text: "Акции", href: "#", className: "invoke-actions" },
     { text: "Госуслуги", href: "#", className: "invoke-gos" },
     { text: "Объявления", href: "#", className: "invoke-ads" },
@@ -35,13 +35,13 @@ const CLIENTS_RIGHT = [
 
 const BUSINESS_LEFT = [
     { text: "Kaspi Pay", href: "/kaspipay" },
-    { text: "Бизнес Кредит", href: "/bizkredit" },
-    { text: "Кредит для ИП", href: "/cashkreditbiz" },
+    { text: "Бизнес Кредит", href: "/business-credit" },
+    { text: "Кредит для ИП", href: "/cash-credit-business" },
 ];
 
 const BUSINESS_RIGHT = [
-    { text: "Продавать в Интернет-магазине на Kaspi.kz", href: "/shop/merchant/registration/#!/landing" },
-    { text: "Принимать платежи с Kaspi.kz", href: "/webpay/partnership" },
+    { text: "Продавать в Интернет-магазине на Kaspi.kz", href: "/shop/merchant/registration" },
+    { text: "Принимать платежи с Kaspi.kz", href: "https://kaspi.kz/webpay/partnership" },
     { text: "Kaspi Гид", href: "https://guide.kaspi.kz/partner/ru" },
 ];
 

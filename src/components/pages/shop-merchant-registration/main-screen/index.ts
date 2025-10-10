@@ -1,0 +1,1 @@
+export {SMRMainScreen} from "./SMRMainScreen";

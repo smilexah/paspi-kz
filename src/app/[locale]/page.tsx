@@ -5,7 +5,7 @@ import {Products} from "@/components/pages/main/products";
 
 export default function HomePage() {
     return (
-        <main>
+        <main className="min-h-screen">
             <MainScreen/>
             <Services/>
             <KaspiShop/>

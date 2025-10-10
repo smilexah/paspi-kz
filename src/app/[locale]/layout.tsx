@@ -9,10 +9,10 @@ import {Header} from "@/components/shared/header";
 import {Footer} from "@/components/shared/footer";
 
 export const metadata: Metadata = {
-    title: "Kaspi.kz",
-    description: "Покупка в кредит, Оплата услуг, Kaspi Bank, Переводы и конвертация, Выписка по картам, Остаток на депозите, Задолженность по кредиту, Покупки в рассрочку, Kaspi Бонус, Вопросы и ответы",
-    keywords: ["Kaspi Bank", "Каспи Банк", "Kaspi Магазин", "рассрочка", "покупки", "Платежи", "Kaspi Кошелек", "Kaspi Бонус", "Кредит Наличными", "Товарный кредит", "Kaspi Депозит", "Кредитная Карта", "Kaspi Gold", "Kaspi Red", "Kaspi Гид", "вопросы", "ответы"],
-    authors: [{name: "Kaspi Bank", url: "https://kaspi.kz"}],
+    title: "Paspi.kz",
+    description: "Покупка в кредит, Оплата услуг, Paspi Bank, Переводы и конвертация, Выписка по картам, Остаток на депозите, Задолженность по кредиту, Покупки в рассрочку, Paspi Бонус, Вопросы и ответы",
+    keywords: ["Paspi Bank", "Каспи Банк", "Paspi Магазин", "рассрочка", "покупки", "Платежи", "Paspi Кошелек", "Paspi Бонус", "Кредит Наличными", "Товарный кредит", "Paspi Депозит", "Кредитная Карта", "Paspi Gold", "Paspi Red", "Paspi Гид", "вопросы", "ответы"],
+    authors: [{name: "Paspi Bank", url: "https://kaspi.kz"}],
 };
 
 export default async function LocaleLayout({
@@ -33,7 +33,7 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
         <head>
-            <title>Kaspi.kz – Магазин, Платежи, Мой Банк, Переводы, Red, Бонусы, Гид</title>
+            <title>Paspi.kz – Магазин, Платежи, Мой Банк, Переводы, Red, Бонусы, Гид</title>
             <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
             <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
             <link rel="shortcut icon" href="/favicons/favicon.ico" />
@@ -43,9 +43,13 @@ export default async function LocaleLayout({
         </head>
         <body className={`antialiased`}>
         <NextIntlClientProvider messages={messages}>
-            <Header/>
-            {children}
-            <Footer/>
+            <div className="flex min-h-screen flex-col">
+                <Header/>
+                <div className="flex-1">
+                    {children}
+                </div>
+                <Footer/>
+            </div>
         </NextIntlClientProvider>
         </body>
         </html>
