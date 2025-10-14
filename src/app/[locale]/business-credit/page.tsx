@@ -1,9 +1,24 @@
+import {FixedActionBar} from "@/components/shared/fixed-action-bar";
+import {BusinessCreditMainScreen} from "@/components/pages/business-credit/main-screen";
+import {BusinessCreditBenefits} from "@/components/pages/business-credit/benefits";
+import {BusinessCreditStepper} from "@/components/pages/business-credit/stepper";
+import {BusinessCreditQR} from "@/components/pages/business-credit/qr";
+import {BusinessCreditCalculator} from "@/components/pages/business-credit/credit-calculator";
+
 export default function BusinessCreditPage() {
     return (
-        <div>
-            <h1>Business Credit Page</h1>
-            <p>Coming soon...</p>
-        </div>
+        <>
+            <main>
+                <BusinessCreditMainScreen/>
+                <BusinessCreditBenefits/>
+                <BusinessCreditStepper/>
+                <BusinessCreditCalculator/>
+                <BusinessCreditQR/>
+            </main>
+            <FixedActionBar
+                label="Открыть Kaspi Gold"
+            />
+        </>
     );
 }
 

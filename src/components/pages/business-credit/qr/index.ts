@@ -1,0 +1,1 @@
+export {BusinessCreditQR} from "./BusinessCreditQR";
