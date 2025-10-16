@@ -1,0 +1,1 @@
+export {MainQR} from "./MainQR";

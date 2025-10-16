@@ -20,17 +20,19 @@ const ITEMS: ServiceT[] = [
         cta: "Купить билеты"
     },
     {
-        href: "/transfers",
+        href: "https://kaspi.kz/transfers",
         name: "Переводы",
         description: "Без комиссий\nна Kaspi Gold",
         img: "/services/transfers.svg",
         cta: "Совершить перевод"
     },
     {
+        href: "#",
         name: "Акции",
         description: "Получайте\nБонусы\nи покупайте\nв рассрочку",
         img: "/services/actions.svg",
-        cta: "Узнать об акциях"
+        cta: "Узнать об акциях",
+        className: "invoke-actions"
     },
     {
         href: "/payments",
@@ -40,32 +42,37 @@ const ITEMS: ServiceT[] = [
         cta: "Оплатить услуги"
     },
     {
+        href: "#",
         name: "Объявления",
         description: "Бесплатные объявления\nтоваров и услуг",
         img: "/services/ads.svg",
-        cta: "Подать объявление"
+        cta: "Подать объявление",
+        className: "invoke-ads"
     },
     {
+        href: "#",
         name: "Мой Банк",
         description: "Kaspi Red,\nДепозиты и кредиты\nонлайн",
         img: "/services/mybank.svg",
-        cta: "Перейти в Мой Банк"
+        cta: "Перейти в Мой Банк",
+        className: "invoke-mybank"
     },
     {
+        href: "#",
         name: "Госуслуги",
         description: "Оформления онлайн,\nбез визита в ЦОН",
         img: "/services/govservice.svg",
-        cta: "Оформить"
+        cta: "Оформить",
+        className: "invoke-gos"
     },
     {
-        href: "/guide/ru",
+        href: "https://guide.kaspi.kz/client/ru",
         name: "Гид",
         description: "Расскажем всё\nо продуктах и сервисах",
         img: "/services/guide.svg",
         cta: "Узнать"
     },
 ];
-
 
 
 export const Services = () => {

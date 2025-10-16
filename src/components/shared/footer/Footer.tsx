@@ -1,5 +1,6 @@
 import {Container} from "@/components/shared/container";
 import {Link} from "@/i18n/navigation";
+import React from "react";
 
 const col1 = [
     "Kaspi Gold",
@@ -53,12 +54,11 @@ const LinkItem = ({children, href = "#"}: { children: React.ReactNode; href?: st
     </Link>
 );
 
-// минимальные SVG-иконки без зависимостей
 const IconWrap = ({children, label}: { children: React.ReactNode; label: string }) => (
     <a
         href="#"
         aria-label={label}
-        className="h-8 w-8 grid place-items-center rounded-full border border-gray-200 text-gray-500 hover:text-gray-900 hover:border-gray-300 transition"
+        className="h-8 w-8 grid place-items-center text-gray-500 hover:text-gray-900 transition"
     >
         {children}
     </a>
@@ -68,10 +68,8 @@ export const Footer = () => {
     return (
         <footer className="w-full">
             <Container>
-                {/* Верхняя сетка ссылок */}
                 <div className="py-10 lg:py-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {/* Колонка 1 */}
                         <div>
                             <h4 className="font-semibold text-gray-900 mb-3">
                                 Продукты Kaspi.kz
@@ -83,7 +81,6 @@ export const Footer = () => {
                             </div>
                         </div>
 
-                        {/* Колонка 2 */}
                         <div>
                             <h4 className="font-semibold text-gray-900 mb-3">
                                 Сервисы Kaspi.kz
@@ -95,7 +92,6 @@ export const Footer = () => {
                             </div>
                         </div>
 
-                        {/* Колонка 3 */}
                         <div>
                             <h4 className="font-semibold text-gray-900 mb-3">Для Бизнеса</h4>
                             <div>
@@ -105,7 +101,6 @@ export const Footer = () => {
                             </div>
                         </div>
 
-                        {/* Колонка 4 — чат и прочее */}
                         <div>
                             <div className="flex items-center gap-2 mb-3">
                                 <h4 className="font-semibold text-gray-900">Чат с Kaspi Гид</h4>
@@ -123,7 +118,6 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                {/* Нижняя информация */}
                 <div className="border-t py-6 text-sm text-gray-500">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                         <div className="flex-1">
@@ -141,13 +135,11 @@ export const Footer = () => {
                             </p>
                         </div>
 
-                        {/* Дублируем иконки справа на больших экранах */}
                         <div className="hidden lg:flex items-start gap-3">
                             <IconWrap label="Instagram">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                    <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor"/>
-                                    <circle cx="12" cy="12" r="4" stroke="currentColor"/>
-                                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                                <svg width="24" height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 6.84985V18.5388C2 20.8339 3.86047 22.6943 6.15552 22.6943H17.8445C20.1395 22.6943 22 20.8339 22 18.5388V6.84985C22 4.55481 20.1395 2.69434 17.8445 2.69434H6.15552C3.86047 2.69434 2 4.55481 2 6.84985ZM14.1185 18.3611C9.18555 20.0631 4.63123 15.5088 6.33325 10.5758C6.90674 8.91321 8.21875 7.60107 9.88135 7.02759C14.8145 5.32556 19.3688 9.87988 17.6667 14.813C17.0933 16.4756 15.7812 17.7876 14.1185 18.3611ZM18.9398 6.64673C18.8613 7.05774 18.5212 7.29688 18.1694 7.29688C17.9553 7.29688 17.7371 7.2085 17.5699 7.01672C17.5552 6.99976 17.5414 6.98157 17.5292 6.96265C17.3567 6.69897 17.3513 6.38574 17.4979 6.13171C17.6017 5.9519 17.7692 5.82349 17.9697 5.76978C18.17 5.71582 18.3795 5.74353 18.5591 5.84741C18.8132 5.9939 18.9651 6.26794 18.9478 6.58215C18.9465 6.60364 18.944 6.62549 18.9398 6.64673Z"></path>
+                                    <path d="M12 7.83569C9.3208 7.83569 7.14136 10.0151 7.14136 12.6943C7.14136 15.3735 9.3208 17.553 12 17.553C14.6792 17.553 16.8586 15.3735 16.8586 12.6943C16.8586 10.0151 14.6792 7.83569 12 7.83569Z"></path>
                                 </svg>
                             </IconWrap>
                             <IconWrap label="YouTube">

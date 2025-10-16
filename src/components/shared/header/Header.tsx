@@ -5,10 +5,17 @@ import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/shared/container";
 import LangSwitcher from "@/components/shared/header/LangSwitcher";
 import React, { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type MenuKey = "clients" | "business" | "guide" | null;
 
-const CLIENTS_LEFT = [
+type MenuItem = {
+    text: string;
+    href: string;
+    className?: string;
+};
+
+const CLIENTS_LEFT: MenuItem[] = [
     { text: "Kaspi Gold", href: "/gold" },
     { text: "Kaspi Gold для ребенка", href: "/goldkid" },
     { text: "Kaspi Red", href: "https://kaspi.kz/kaspired" },
@@ -21,7 +28,7 @@ const CLIENTS_LEFT = [
     { text: "Автокредит на Kolesa.kz", href: "https://kaspi.kz/carcredit" },
 ];
 
-const CLIENTS_RIGHT = [
+const CLIENTS_RIGHT: MenuItem[] = [
     { text: "Магазин", href: "/shop" },
     { text: "Travel", href: "/kaspitravel" },
     { text: "Платежи", href: "/payments" },
@@ -33,13 +40,13 @@ const CLIENTS_RIGHT = [
     { text: "Kaspi Гид", href: "https://guide.kaspi.kz/client/ru" },
 ];
 
-const BUSINESS_LEFT = [
+const BUSINESS_LEFT: MenuItem[] = [
     { text: "Kaspi Pay", href: "/kaspipay" },
     { text: "Бизнес Кредит", href: "/business-credit" },
     { text: "Кредит для ИП", href: "/cash-credit-business" },
 ];
 
-const BUSINESS_RIGHT = [
+const BUSINESS_RIGHT: MenuItem[] = [
     { text: "Продавать в Интернет-магазине на Kaspi.kz", href: "/shop/merchant/registration" },
     { text: "Принимать платежи с Kaspi.kz", href: "https://kaspi.kz/webpay/partnership" },
     { text: "Kaspi Гид", href: "https://guide.kaspi.kz/partner/ru" },
@@ -49,15 +56,24 @@ function MenuLink({
                       children,
                       href = "#",
                       className = "",
+                      active = false,
                   }: {
     children: React.ReactNode;
     href?: string;
     className?: string;
+    active?: boolean;
 }) {
+    const pathname = usePathname();
+    const isActive = active || pathname === href || (href !== "#" && href !== "/" && pathname.startsWith(href));
+
     return (
         <Link
             href={href}
-            className={`block text-[14px] leading-[18px] text-[#000] ${className}`}
+            className={`block text-[14px] leading-[18px] transition-colors ${
+                isActive 
+                    ? "text-[#0006] font-medium" 
+                    : "text-[#1f1f1f] hover:text-[#0006]"
+            } ${className}`}
         >
             {children}
         </Link>
@@ -67,6 +83,7 @@ function MenuLink({
 export const Header = () => {
     const [open, setOpen] = useState<MenuKey>(null);
     const closeTimer = useRef<NodeJS.Timeout | null>(null);
+    const pathname = usePathname();
 
     const openMenu = (key: MenuKey) => {
         if (closeTimer.current) {
@@ -79,6 +96,23 @@ export const Header = () => {
     const scheduleClose = () => {
         if (closeTimer.current) clearTimeout(closeTimer.current);
         closeTimer.current = setTimeout(() => setOpen(null), 120);
+    };
+
+    const isMenuSectionActive = (menuKey: MenuKey) => {
+        if (menuKey === "clients") {
+            return [...CLIENTS_LEFT, ...CLIENTS_RIGHT].some(item =>
+                item.href !== "#" && item.href !== "/" && pathname.startsWith(item.href)
+            );
+        }
+        if (menuKey === "business") {
+            return [...BUSINESS_LEFT, ...BUSINESS_RIGHT].some(item =>
+                item.href !== "#" && item.href !== "/" && pathname.startsWith(item.href)
+            );
+        }
+        if (menuKey === "guide") {
+            return pathname.includes("guide");
+        }
+        return false;
     };
 
     return (
@@ -104,9 +138,9 @@ export const Header = () => {
                             <button
                                 className={
                                     "text-[17px] transition " +
-                                    (open === "clients"
-                                        ? "text-black"
-                                        : "text-[#0006] hover:text-black")
+                                    (open === "clients" || isMenuSectionActive("clients")
+                                        ? "text-[#1f1f1f] font-medium"
+                                        : "text-[#0006] hover:text-[#1f1f1f]")
                                 }
                             >
                                 Клиентам
@@ -121,8 +155,8 @@ export const Header = () => {
                             <button
                                 className={
                                     "text-[17px] transition " +
-                                    (open === "business"
-                                        ? "text-black"
+                                    (open === "business" || isMenuSectionActive("business")
+                                        ? "text-black font-medium"
                                         : "text-[#0006] hover:text-black")
                                 }
                             >
@@ -138,8 +172,8 @@ export const Header = () => {
                             <button
                                 className={
                                     "text-[17px] transition " +
-                                    (open === "guide"
-                                        ? "text-black"
+                                    (open === "guide" || isMenuSectionActive("guide")
+                                        ? "text-black font-medium"
                                         : "text-[#0006] hover:text-black")
                                 }
                             >
@@ -175,7 +209,7 @@ export const Header = () => {
                                             </h4>
                                             <div className="flex flex-col gap-5">
                                                 {CLIENTS_LEFT.map((t) => (
-                                                    <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
+                                                    <MenuLink key={t.text} href={t.href} className={t.className}>{t.text}</MenuLink>
                                                 ))}
                                             </div>
                                         </div>
@@ -185,7 +219,7 @@ export const Header = () => {
                                             </h4>
                                             <div className="flex flex-col gap-5">
                                                 {CLIENTS_RIGHT.map((t) => (
-                                                    <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
+                                                    <MenuLink key={t.text} href={t.href} className={t.className}>{t.text}</MenuLink>
                                                 ))}
                                             </div>
                                         </div>
@@ -196,12 +230,12 @@ export const Header = () => {
                                     <div className="w-full flex justify-center">
                                         <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_LEFT.map((t) => (
-                                                <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
+                                                <MenuLink key={t.text} href={t.href} className={t.className}>{t.text}</MenuLink>
                                             ))}
                                         </div>
                                         <div className="flex flex-col gap-5 flex-1">
                                             {BUSINESS_RIGHT.map((t) => (
-                                                <MenuLink key={t.text} href={t.href}>{t.text}</MenuLink>
+                                                <MenuLink key={t.text} href={t.href} className={t.className}>{t.text}</MenuLink>
                                             ))}
                                         </div>
                                     </div>

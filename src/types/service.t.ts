@@ -4,4 +4,5 @@ export type ServiceT = {
     img: string;
     cta: string;
     href?: string;
+    className?: string;
 };
