@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import * as React from "react";
+import {useTranslations} from "next-intl";
 
 export type PaymentMethodCardProps = {
     title: string;        // Smart POS / Мобильный POS / QR Дисплей
@@ -16,9 +17,11 @@ export function PaymentMethodCard({
                                       title,
                                       imageSrc,
                                       href,
-                                      cta = "Принимать оплату с Kaspi Pay",
+                                      cta,
                                       className = "",
                                   }: PaymentMethodCardProps) {
+    const t = useTranslations("PaymentMethodCard");
+    const linkText = cta ?? t("ctaDefault");
     return (
         <div className={["flex flex-col items-center text-center", className].join(" ")}>
             <div className="relative h-44 w-full max-w-[260px]">
@@ -38,7 +41,7 @@ export function PaymentMethodCard({
                 href={href}
                 className="mt-4 text-blue-600 text-sm font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
             >
-                {cta}
+                {linkText}
             </Link>
         </div>
     );

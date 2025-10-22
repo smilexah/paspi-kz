@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Container } from "@/components/shared/container";
+import {useTranslations} from "next-intl";
 
 type Step = {
     id: number;
@@ -14,14 +15,16 @@ type Step = {
     imageAlt: string;
 };
 
-const STEPS: Step[] = [
-    { id: 1, badge: "1", title: "Мобильный\nPOS-терминал", subtitle: "Кассир указывает сумму и генерирует QR-код для каждой покупки.", imageSrc: "/steps/pos.png", imageAlt: "POS" },
-    { id: 2, badge: "2", title: "QR-код на кассе", subtitle: "Вы распечатываете QR-код и размещаете его на кассе.", imageSrc: "/steps/kaspi-qr.png", imageAlt: "Kaspi QR" },
-    { id: 3, badge: "3", title: "Удаленная оплата", subtitle: "Вы можете отправить клиенту счёт для удаленной оплаты через Kaspi.kz.", imageSrc: "/steps/invoice.png", imageAlt: "Invoice" },
-    { id: 4, badge: "4", title: "Оплата по ссылке", subtitle: "Делитесь ссылкой и принимайте оплату в мессенджерах, соцсетях или на сайте.", imageSrc: "/steps/link.png", imageAlt: "Link" },
-];
-
 export function StepperWithSlider() {
+    const t = useTranslations("StepperWithSlider");
+
+    const STEPS: Step[] = [
+        { id: 1, badge: "1", title: t("steps.1.title"), subtitle: t("steps.1.subtitle"), imageSrc: "/steps/pos.png", imageAlt: "POS" },
+        { id: 2, badge: "2", title: t("steps.2.title"), subtitle: t("steps.2.subtitle"), imageSrc: "/steps/kaspi-qr.png", imageAlt: "Kaspi QR" },
+        { id: 3, badge: "3", title: t("steps.3.title"), subtitle: t("steps.3.subtitle"), imageSrc: "/steps/invoice.png", imageAlt: "Invoice" },
+        { id: 4, badge: "4", title: t("steps.4.title"), subtitle: t("steps.4.subtitle"), imageSrc: "/steps/link.png", imageAlt: "Link" },
+    ];
+
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: false,
         align: "start",
@@ -52,17 +55,14 @@ export function StepperWithSlider() {
         <section className="bg-[#F6F6F6] py-10 sm:py-14">
             <Container>
                 <h2 className="text-center text-[40px] sm:text-[56px] font-bold leading-tight mb-8 sm:mb-12">
-                    Как принимать оплату?
+                    {t("heading")}
                 </h2>
 
                 <div className="relative">
-                    {/* стрелки — показываем только если можно листать */}
-                    {canPrev && <Arrow direction="left" onClick={scrollPrev} />}
-                    {canNext && <Arrow direction="right" onClick={scrollNext} />}
+                    {canPrev && <Arrow direction="left" onClick={scrollPrev} label={t("arrowPrev")} />}
+                    {canNext && <Arrow direction="right" onClick={scrollNext} label={t("arrowNext")} />}
 
                     <div className="overflow-hidden" ref={emblaRef}>
-                        {/* gap = 24px => 2 промежутка между 3 карточками = 48px
-                ширина карточки = calc((100% - 48px) / 3) */}
                         <div className="flex gap-6">
                             {STEPS.map((s) => (
                                 <div
@@ -83,16 +83,18 @@ export function StepperWithSlider() {
 function Arrow({
                    direction,
                    onClick,
+                   label
                }: {
     direction: "left" | "right";
     onClick: () => void;
+    label: string;
 }) {
     const common =
         "absolute top-1/2 -translate-y-1/2 z-10 grid place-items-center h-12 w-12 rounded-full bg-white shadow-md border border-gray-200 hover:bg-gray-50 transition";
     return (
         <button
             type="button"
-            aria-label={direction === "left" ? "Назад" : "Вперед"}
+            aria-label={label}
             onClick={onClick}
             className={`${common} ${
                 direction === "left" ? "-left-3 md:-left-6" : "-right-3 md:-right-6"

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
+import {useTranslations} from "next-intl";
 
 type ModalProps = {
     open: boolean;
@@ -23,6 +24,7 @@ export const Modal = ({
                           imageAlt = "Modal image",
                           imageSize = 220,
                       }: ModalProps) => {
+    const t = useTranslations("Modal");
     return (
         <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
             <Dialog.Portal>
@@ -30,7 +32,7 @@ export const Modal = ({
                 <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mx-4 w-full max-w-[560px] rounded-2xl bg-white p-6 sm:p-8 shadow-xl z-[101]">
                     <Dialog.Close asChild>
                         <button
-                            aria-label="Закрыть"
+                            aria-label={t("close")}
                             className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600"
                         >
                             ×

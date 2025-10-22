@@ -8,5 +8,175 @@
     "title": "Ой! Мұндай бет жоқ.",
     "description": "Өкінішке орай, сұралған бет жоқ немесе ол басқа жерге ауыстырылды.",
     "back": "Басты бетке"
+  },
+  "Common": {
+    "more": "Толығырақ"
+  },
+  "Modal": {
+    "close": "Жабу"
+  },
+  "Partners": {
+    "title": "Серіктестер"
+  },
+  "Header": {
+    "clients": "Клиенттерге",
+    "business": "Бизнеске",
+    "guide": "Kaspi Гид",
+    "products": "Kaspi.kz өнімдері",
+    "services": "Kaspi.kz сервистері",
+    "menu": {
+      "clientsLeft": {
+        "gold": "Kaspi Gold",
+        "goldkid": "Kaspi Gold балаларға",
+        "red": "Kaspi Red",
+        "deposit": "Kaspi Депозит",
+        "saveDeposit": "Жинақ депозиті",
+        "purchaseCredit": "Сатып алуға несие",
+        "installment": "Бөліп төлеу",
+        "ipCredit": "ЖК үшін несие",
+        "cashCredit": "Қолма-қол несие",
+        "autoCredit": "Kolesa.kz авто несиесі"
+      },
+      "clientsRight": {
+        "shop": "Дүкен",
+        "travel": "Travel",
+        "payments": "Төлемдер",
+        "mybank": "Менің банкім",
+        "transfers": "Аударымдар",
+        "actions": "Акциялар",
+        "egov": "Мемлекеттік қызметтер",
+        "ads": "Хабарландырулар",
+        "guide": "Kaspi Гид"
+      },
+      "businessLeft": {
+        "kaspipay": "Kaspi Pay",
+        "businessCredit": "Бизнеске несие",
+        "ipCredit": "ЖК үшін несие"
+      },
+      "businessRight": {
+        "merchantRegistration": "Kaspi.kz интернет-дүкенінде сату",
+        "webpayPartnership": "Kaspi.kz арқылы төлем қабылдау",
+        "guide": "Kaspi Гид"
+      }
+    }
+  },
+  "Footer": {
+    "products": "Kaspi.kz өнімдері",
+    "services": "Kaspi.kz сервистері",
+    "forBusiness": "Бизнес үшін",
+    "chatTitle": "Kaspi Гидпен чат",
+    "chatAction": "Жазу",
+    "links": {
+      "products": {
+        "gold": "Kaspi Gold",
+        "goldkid": "Kaspi Gold балаларға",
+        "red": "Kaspi Red",
+        "deposit": "Kaspi Депозит",
+        "saveDeposit": "Жинақ депозиті",
+        "purchaseCredit": "Сатып алуға несие",
+        "installment": "Бөліп төлеу",
+        "ipCredit": "ЖК үшін несие",
+        "cashCredit": "Қолма-қол несие"
+      },
+      "services": {
+        "shop": "Дүкен",
+        "travel": "Travel",
+        "payments": "Төлемдер",
+        "mybank": "Менің банкім",
+        "transfers": "Аударымдар",
+        "actions": "Акциялар",
+        "egov": "Мемлекеттік қызметтер",
+        "ads": "Хабарландырулар",
+        "guide": "Kaspi Гид"
+      },
+      "business": {
+        "kaspipay": "Kaspi Pay",
+        "businessCredit": "Бизнеске несие",
+        "ipCredit": "ЖК үшін несие",
+        "merchantRegistration": "Kaspi.kz интернет-дүкенінде сату",
+        "webpayPartnership": "Kaspi.kz арқылы төлем қабылдау",
+        "guide": "Kaspi Гид",
+        "partnerCabinet": "Kaspi Pay серіктес кабинеті"
+      },
+      "misc": {
+        "hotline9999": "9999 Ұялы телефоннан тегін",
+        "branches": "Kaspi.kz бөлімшелері",
+        "terms": "Пайдаланушы келісімі",
+        "jobs": "Вакансиялар",
+        "investorRelations": "Инвесторлармен байланыс",
+        "compliance": "Комплаенс бақылау"
+      }
+    }
+  },
+  "StepperWithSlider": {
+    "heading": "Қалай төлем қабылдауға болады?",
+    "arrowPrev": "Артқа",
+    "arrowNext": "Алға",
+    "steps": {
+      "1": {"title": "Мобильді\nPOS-терминал", "subtitle": "Кассир әр сатып алуға сома енгізіп, QR-код жасайды."},
+      "2": {"title": "Кассадағы QR-код", "subtitle": "QR-кодты басып шығарып, кассаға орналастырыңыз."},
+      "3": {"title": "Қашықтан төлем", "subtitle": "Kaspi.kz арқылы клиентке қашықтан төлеуге шот жібере аласыз."},
+      "4": {"title": "Сілтеме арқылы төлем", "subtitle": "Сілтемемен бөлісіп, мессенджерлерде, әлеуметтік желілерде немесе сайтта төлем қабылдаңыз."}
+    }
+  },
+  "QR": {
+    "heading": "Қосымшаға өту үшін сканерлеңіз <br /> Kaspi.kz"
+  },
+  "PopularRoutes": {
+    "heading": "Танымал бағыттар",
+    "arrowPrev": "Артқа",
+    "arrowNext": "Алға",
+    "cities": {
+      "almaty": "Алматы",
+      "astana": "Астана",
+      "shymkent": "Шымкент",
+      "aktau": "Ақтау",
+      "atyrau": "Атырау",
+      "aktobe": "Ақтөбе",
+      "turkestan": "Түркістан"
+    }
+  },
+  "GoldStepper": {
+    "title": "Қалай жұмыс істейді?",
+    "steps": {
+      "1": "Kaspi.kz қосымшасын жүктеңіз",
+      "2": "Kaspi Gold-ты онлайн ашыңыз"
+    }
+  },
+  "SMRMain": {
+    "imageAlt": "Kaspi Travel",
+    "title": "Kaspi Travel",
+    "description": "Ұшақ және пойыз билеттері тиімді бағамен",
+    "primaryButton": "Билеттерді табу"
+  },
+  "SMRStepper": {
+    "title": "Қалай жұмыс істейді?",
+    "steps": {
+      "1": "Kaspi.kz қосымшасын жүктеңіз",
+      "2": "Ұшақ және пойыз билеттерін онлайн тиімді бағамен сатып алыңыз"
+    }
+  },
+  "SMRBenefits": {
+    "title": "Kaspi Travel артықшылықтары",
+    "items": {
+      "1": "Мыңдаған бағыт\n төмен бағамен",
+      "2": "Жылдам қайтару\n және айырбастау",
+      "3": "Kaspi Gold арқылы төлем\n және несиеге"
+    }
+  },
+  "GoldMain": {
+    "imageAlt": "Kaspi Gold",
+    "title": "Kaspi Gold",
+    "description": "Сатып алу, аударымдар, төлемдер, <br/> комиссиясыз алу",
+    "primaryButton": "Kaspi Gold ашу"
+  },
+  "PaymentsMain": {
+    "imageAlt": "Kaspi.kz төлемдері",
+    "title": "Kaspi.kz төлемдері",
+    "description": "Комиссиясыз, 10 000-нан астам қызмет",
+    "primaryButton": "Қызметтерді төлеу"
+  },
+  "PaymentMethodCard": {
+    "ctaDefault": "Kaspi Pay арқылы төлем қабылдау"
   }
 }

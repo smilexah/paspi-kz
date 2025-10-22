@@ -174,7 +174,6 @@ export const CreditCalculator = ({
     return (
         <div className={`rounded-[28px] bg-white shadow-sm border border-gray-200 p-5 sm:p-8 ${className}`}>
             <div className="grid gap-8 lg:grid-cols-2">
-                {/* LEFT */}
                 <div>
                     <h3 className="text-[28px] sm:text-[32px] font-bold mb-4">{title}</h3>
 
@@ -195,7 +194,6 @@ export const CreditCalculator = ({
                             ].join(" ")}
                         />
 
-                        {/* валюта-суффикс внутри поля */}
                         <span
                             className={[
                                 "pointer-events-none absolute right-10 top-1/2 -translate-y-1/2 text-[18px]",
@@ -221,7 +219,6 @@ export const CreditCalculator = ({
                         {L.minHint} {numberFmt(minAmount, currency)}
                     </p>
 
-                    {/* terms */}
                     <div className="mt-5 grid grid-cols-3 sm:grid-cols-6 gap-3 max-w-[560px]">
                         {terms.map((t) => {
                             const active = t === term;
@@ -248,7 +245,6 @@ export const CreditCalculator = ({
                     </div>
                 </div>
 
-                {/* RIGHT */}
                 <div>
                     <div className="rounded-[18px] border border-gray-200 shadow-sm bg-white p-5 sm:p-8">
                         <h4 className="text-center text-[22px] sm:text-[24px] font-semibold">

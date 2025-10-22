@@ -2,16 +2,19 @@
 
 import {Stepper} from "../../../shared/stepper";
 import {StepT} from "@/types/step.t";
-
-const steps: StepT[] = [
-    {number: 1, text: "Скачайте приложение Kaspi.kz"},
-    {number: 2, text: "Откройте Kaspi Gold онлайн"},
-];
+import {useTranslations} from "next-intl";
 
 export const GoldStepper = () => {
+    const t = useTranslations("GoldStepper");
+
+    const steps: StepT[] = [
+        {number: 1, text: t("steps.1")},
+        {number: 2, text: t("steps.2")},
+    ];
+
     return (
         <Stepper
-            title="Как это работает?"
+            title={t("title")}
             steps={steps}
             lineColor="#E4573D"
         />

@@ -1,49 +1,52 @@
+"use client";
+
 import {Container} from "@/components/shared/container";
 import {Link} from "@/i18n/navigation";
 import React from "react";
+import {useTranslations} from "next-intl";
 
-const col1 = [
-    "Kaspi Gold",
-    "Kaspi Gold для ребенка",
-    "Kaspi Red",
-    "Kaspi Депозит",
-    "Накопительный Депозит",
-    "Кредит на Покупки",
-    "Рассрочка",
-    "Кредит для ИП",
-    "Кредит Наличными",
-];
+const productKeys = [
+    "links.products.gold",
+    "links.products.goldkid",
+    "links.products.red",
+    "links.products.deposit",
+    "links.products.saveDeposit",
+    "links.products.purchaseCredit",
+    "links.products.installment",
+    "links.products.ipCredit",
+    "links.products.cashCredit",
+] as const;
 
-const col2 = [
-    "Магазин",
-    "Travel",
-    "Платежи",
-    "Мой банк",
-    "Переводы",
-    "Акции",
-    "Госуслуги",
-    "Объявления",
-    "Kaspi Гид",
-];
+const serviceKeys = [
+    "links.services.shop",
+    "links.services.travel",
+    "links.services.payments",
+    "links.services.mybank",
+    "links.services.transfers",
+    "links.services.actions",
+    "links.services.egov",
+    "links.services.ads",
+    "links.services.guide",
+] as const;
 
-const col3 = [
-    "Kaspi Pay",
-    "Бизнес Кредит",
-    "Кредит для ИП",
-    "Продавать в Интернет-магазине на Kaspi.kz",
-    "Принимать платежи с Kaspi.kz",
-    "Kaspi Гид",
-    "Кабинет партнера Kaspi Pay",
-];
+const businessKeys = [
+    "links.business.kaspipay",
+    "links.business.businessCredit",
+    "links.business.ipCredit",
+    "links.business.merchantRegistration",
+    "links.business.webpayPartnership",
+    "links.business.guide",
+    "links.business.partnerCabinet",
+] as const;
 
-const col4 = [
-    "9999 Бесплатно с мобильного",
-    "Отделения Kaspi.kz",
-    "Пользовательское соглашение",
-    "Вакансии",
-    "Investor Relations",
-    "Комплаенс контроль",
-];
+const miscKeys = [
+    "links.misc.hotline9999",
+    "links.misc.branches",
+    "links.misc.terms",
+    "links.misc.jobs",
+    "links.misc.investorRelations",
+    "links.misc.compliance",
+] as const;
 
 const LinkItem = ({children, href = "#"}: { children: React.ReactNode; href?: string }) => (
     <Link
@@ -65,6 +68,8 @@ const IconWrap = ({children, label}: { children: React.ReactNode; label: string 
 );
 
 export const Footer = () => {
+    const t = useTranslations("Footer");
+
     return (
         <footer className="w-full">
             <Container>
@@ -72,46 +77,46 @@ export const Footer = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                         <div>
                             <h4 className="font-semibold text-gray-900 mb-3">
-                                Продукты Kaspi.kz
+                                {t("products")}
                             </h4>
                             <div>
-                                {col1.map((t) => (
-                                    <LinkItem key={t}>{t}</LinkItem>
+                                {productKeys.map((k) => (
+                                    <LinkItem key={k}>{t(k)}</LinkItem>
                                 ))}
                             </div>
                         </div>
 
                         <div>
                             <h4 className="font-semibold text-gray-900 mb-3">
-                                Сервисы Kaspi.kz
+                                {t("services")}
                             </h4>
                             <div>
-                                {col2.map((t) => (
-                                    <LinkItem key={t}>{t}</LinkItem>
+                                {serviceKeys.map((k) => (
+                                    <LinkItem key={k}>{t(k)}</LinkItem>
                                 ))}
                             </div>
                         </div>
 
                         <div>
-                            <h4 className="font-semibold text-gray-900 mb-3">Для Бизнеса</h4>
+                            <h4 className="font-semibold text-gray-900 mb-3">{t("forBusiness")}</h4>
                             <div>
-                                {col3.map((t) => (
-                                    <LinkItem key={t}>{t}</LinkItem>
+                                {businessKeys.map((k) => (
+                                    <LinkItem key={k}>{t(k)}</LinkItem>
                                 ))}
                             </div>
                         </div>
 
                         <div>
                             <div className="flex items-center gap-2 mb-3">
-                                <h4 className="font-semibold text-gray-900">Чат с Kaspi Гид</h4>
+                                <h4 className="font-semibold text-gray-900">{t("chatTitle")}</h4>
                                 <span
                                     className="px-2.5 py-0.5 text-xs rounded-full bg-gray-100 border border-gray-200 text-gray-700">
-                                  Написать
+                                  {t("chatAction")}
                                 </span>
                             </div>
                             <div className="mb-6">
-                                {col4.map((t) => (
-                                    <LinkItem key={t}>{t}</LinkItem>
+                                {miscKeys.map((k) => (
+                                    <LinkItem key={k}>{t(k)}</LinkItem>
                                 ))}
                             </div>
                         </div>
@@ -121,16 +126,14 @@ export const Footer = () => {
                 <div className="border-t py-6 text-sm text-gray-500">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
                         <div className="flex-1">
-                            <p>© 2012–2025, АО «Kaspi Bank»</p>
+                            <p>{t("legal.copyright")}</p>
                             <p className="mt-3 leading-6">
-                                Лицензия на проведение банковских и иных операций и деятельности на рынке ценных бумаг
-                                №1.2.245/61 от 03.02.2020, выданная Агентством Республики Казахстан по регулированию и
-                                развитию финансового рынка
+                                {t("legal.license")}
                             </p>
                             <p className="mt-2">
                                 <Link href="#"
                                       className="hover:text-gray-900 underline decoration-transparent hover:decoration-gray-300">
-                                    Корпоративный сайт
+                                    {t("legal.corporateSite")}
                                 </Link>
                             </p>
                         </div>

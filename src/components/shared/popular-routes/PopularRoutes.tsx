@@ -5,18 +5,31 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import { Container } from "../container";
 import {RouteT} from "@/types/route.t";
+import {useTranslations} from "next-intl";
 
-const ROUTES: RouteT[] = [
-    { from: "Алматы", to: "Астана", img: "/destination/nur-sultan.png" },
-    { from: "Астана", to: "Шымкент", img: "/destination/shymkent.png" },
-    { from: "Алматы", to: "Шымкент", img: "/destination/shymkent-2.png" },
-    { from: "Актау", to: "Алматы", img: "/destination/almaty.png" },
-    { from: "Атырау", to: "Алматы", img: "/destination/almaty-2.png" },
-    { from: "Алматы", to: "Актобе", img: "/destination/aktobe.png" },
-    { from: "Астана", to: "Актобе", img: "/destination/aktobe-2.png" },
-    { from: "Атырау", to: "Астана", img: "/destination/nur-sultan.png" },
-    { from: "Атырау", to: "Актау", img: "/destination/aktau.png" },
-    { from: "Астана", to: "Туркестан", img: "/destination/turkestan.png" },
+type RouteCode = { from: keyof Cities; to: keyof Cities; img: string };
+
+type Cities = {
+    almaty: string;
+    astana: string;
+    shymkent: string;
+    aktau: string;
+    atyrau: string;
+    aktobe: string;
+    turkestan: string;
+};
+
+const ROUTE_CODES: RouteCode[] = [
+    { from: "almaty", to: "astana", img: "/destination/nur-sultan.png" },
+    { from: "astana", to: "shymkent", img: "/destination/shymkent.png" },
+    { from: "almaty", to: "shymkent", img: "/destination/shymkent-2.png" },
+    { from: "aktau", to: "almaty", img: "/destination/almaty.png" },
+    { from: "atyrau", to: "almaty", img: "/destination/almaty-2.png" },
+    { from: "almaty", to: "aktobe", img: "/destination/aktobe.png" },
+    { from: "astana", to: "aktobe", img: "/destination/aktobe-2.png" },
+    { from: "atyrau", to: "astana", img: "/destination/nur-sultan.png" },
+    { from: "atyrau", to: "aktau", img: "/destination/aktau.png" },
+    { from: "astana", to: "turkestan", img: "/destination/turkestan.png" },
 ];
 
 function RouteCard({ r }: { r: RouteT }) {
@@ -35,7 +48,6 @@ function RouteCard({ r }: { r: RouteT }) {
             </div>
 
             <div className="p-4">
-                {/* важное: whitespace-pre-line, чтобы сработал \n */}
                 <p className="whitespace-pre-line text-[18px] font-medium leading-6 text-gray-900">
                     {title}
                 </p>
@@ -45,6 +57,23 @@ function RouteCard({ r }: { r: RouteT }) {
 }
 
 export const PopularRoutes = () => {
+    const t = useTranslations("PopularRoutes");
+    const cities: Cities = {
+        almaty: t("cities.almaty"),
+        astana: t("cities.astana"),
+        shymkent: t("cities.shymkent"),
+        aktau: t("cities.aktau"),
+        atyrau: t("cities.atyrau"),
+        aktobe: t("cities.aktobe"),
+        turkestan: t("cities.turkestan"),
+    };
+
+    const routes: RouteT[] = ROUTE_CODES.map(rc => ({
+        from: cities[rc.from],
+        to: cities[rc.to],
+        img: rc.img
+    }));
+
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: "start",
@@ -57,13 +86,12 @@ export const PopularRoutes = () => {
     return (
         <section className="bg-[#f5f5f5] py-12">
             <Container>
-                <h2 className="mb-8 text-center text-3xl md:text-5xl font-bold">Популярные направления</h2>
+                <h2 className="mb-8 text-center text-3xl md:text-5xl font-bold">{t("heading")}</h2>
 
                 <div className="relative">
                     <div ref={emblaRef} className="overflow-hidden">
-                        {/* gap-4 = 16px → 4 промежутка = 64px; 5 карточек = (100% - 64px) / 5 */}
                         <div className="flex gap-4">
-                            {ROUTES.map((r, i) => (
+                            {routes.map((r, i) => (
                                 <div
                                     key={i}
                                     className="
@@ -79,15 +107,14 @@ export const PopularRoutes = () => {
                         </div>
                     </div>
 
-                    {/* стрелки */}
                     <button onClick={prev}
                             className="absolute left-[-22px] top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow hover:bg-white"
-                            aria-label="Назад">
+                            aria-label={t("arrowPrev")}>
                         <svg width="22" height="22" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="black" strokeOpacity=".6" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </button>
                     <button onClick={next}
                             className="absolute right-[-22px] top-1/2 -translate-y-1/2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow hover:bg-white"
-                            aria-label="Вперёд">
+                            aria-label={t("arrowNext")}>
                         <svg width="22" height="22" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="black" strokeOpacity=".6" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </button>
                 </div>

@@ -2,21 +2,20 @@
 
 import {Benefits} from "../../../shared/benefits";
 import {BenefitsT} from "@/types/benefits.t";
-
-const ITEMS: BenefitsT[] = [
-    {title: "Тысячи направлений\n по низким ценам", icon: "/benefits/kaspi-travel/location_icon.svg"},
-    {title: "Быстрый возврат\n и обмен", icon: "/benefits/kaspi-travel/return_icon.svg"},
-    {title: "Оплата с Kaspi Gold\n и в кредит", icon: "/benefits/kaspi-travel/tenge_icon.svg"},
-];
+import {useTranslations} from "next-intl";
 
 export const SMRConditions = () => {
+    const t = useTranslations("SMRBenefits");
+
+    const ITEMS: BenefitsT[] = [
+        {title: t("items.1"), icon: "/benefits/kaspi-travel/location_icon.svg"},
+        {title: t("items.2"), icon: "/benefits/kaspi-travel/return_icon.svg"},
+        {title: t("items.3"), icon: "/benefits/kaspi-travel/tenge_icon.svg"},
+    ];
+
     return (
         <Benefits
-            title={
-                <>
-                    Преимущества Kaspi Travel
-                </>
-            }
+            title={<>{t("title")}</>}
             items={ITEMS}
         />
     )

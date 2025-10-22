@@ -1,19 +1,17 @@
 "use client";
 
 import {Hero} from "../../../shared/hero";
+import {useTranslations} from "next-intl";
 
 export const GoldMainScreen = () => {
+    const t = useTranslations("GoldMain");
     return (
         <Hero
             imageSrc="/hero/gold-main-v2.svg"
-            imageAlt="Main Logo v2"
-            title="Kaspi Gold"
-            description={
-                <>
-                    Покупки, переводы, платежи, <br/> снятия без комиссий
-                </>
-            }
-            primaryButtonText="Открыть Kaspi Gold"
+            imageAlt={t("imageAlt")}
+            title={t("title")}
+            description={t.rich("description", { br: () => <br/> })}
+            primaryButtonText={t("primaryButton")}
             onPrimaryClick={() => console.log("Kaspi Gold click")}
         />
     )

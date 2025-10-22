@@ -1,20 +1,18 @@
 "use client";
 
 import {Hero} from "../../../shared/hero";
+import {useTranslations} from "next-intl";
 
 export const SMRMainScreen = () => {
+    const t = useTranslations("SMRMain");
     return (
         <Hero
             imageSrc="/hero/travel-main-v3.svg"
-            imageAlt="Kaspi Travel"
-            title="Kaspi Travel"
-            description={
-                <>
-                    Авиа и ЖД билеты по выгодным ценам
-                </>
-            }
-            primaryButtonText="Найти билеты"
-            onPrimaryClick={() => console.log("Kaspi Gold click")}
+            imageAlt={t("imageAlt")}
+            title={t("title")}
+            description={<>{t("description")}</>}
+            primaryButtonText={t("primaryButton")}
+            onPrimaryClick={() => console.log("Kaspi Travel click")}
         />
     )
 }

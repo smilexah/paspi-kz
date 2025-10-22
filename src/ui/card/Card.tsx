@@ -1,6 +1,6 @@
 import {ServiceT} from "@/types/service.t";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import React from "react";
 
 export const Card = ({item}: { item: ServiceT }) => {
@@ -18,7 +18,6 @@ export const Card = ({item}: { item: ServiceT }) => {
 
                 <div className="whitespace-pre-line text-[17px]">{item.description}</div>
 
-                {/* Flex контейнер для медиа-зоны */}
                 <div className="flex-1 flex flex-col justify-end relative">
                     <Image
                         src={item.img}
@@ -35,7 +34,6 @@ export const Card = ({item}: { item: ServiceT }) => {
                         "
                     />
 
-                    {/* Кнопка - флекс позиционирование */}
                     <div className="
                         w-full
                         opacity-0 transition-opacity duration-200 ease-out

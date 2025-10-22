@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import * as React from "react";
+import {useTranslations} from "next-intl";
 
 export type PartnerCtaCardProps = {
     title: string;            // "Продавать в Интернет-магазине на Kaspi.kz"
@@ -18,11 +19,13 @@ export function PartnerCtaCard({
                                    title,
                                    description,
                                    href,
-                                   linkText = "Подробнее",
+                                   linkText,
                                    iconSrc,
                                    iconBg = "#E5E7EB",
                                    className = "",
                                }: PartnerCtaCardProps) {
+    const t = useTranslations();
+    const resolvedLinkText = linkText ?? t("Common.more");
     return (
         <div
             className={[
@@ -45,7 +48,7 @@ export function PartnerCtaCard({
                     href={href}
                     className="mt-4 inline-block text-blue-600 text-sm font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
                 >
-                    {linkText}
+                    {resolvedLinkText}
                 </Link>
             </div>
 

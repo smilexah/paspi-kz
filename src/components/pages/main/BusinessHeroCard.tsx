@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {Badge} from "@/components/pages/main/Badge";
 
 export type BusinessHeroCard = {
@@ -26,7 +26,6 @@ export function BusinessHeroCard({
     return (
         <div
             className="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-6 rounded-2xl bg-white p-6 ring-1 ring-gray-200 shadow-sm">
-            {/* Левая текстовая колонка */}
             <div>
                 <div className="mb-4 inline-grid h-10 w-10 place-items-center rounded-xl bg-gray-700/10">
                     <Image src={appIconSrc} alt="" width={24} height={24} className="opacity-80"/>
@@ -50,7 +49,6 @@ export function BusinessHeroCard({
                 </Link>
             </div>
 
-            {/* Правый мок телефона */}
             <div className="mx-auto md:mx-0">
                 <Image
                     src={phoneMockSrc}

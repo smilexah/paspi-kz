@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import * as React from "react";
+import {useTranslations} from "next-intl";
 
 export type ProductCardProps = {
     title: string;           // Маленький серый заголовок (напр. "Kaspi Gold")
@@ -20,13 +21,15 @@ export function ProductCard({
                                 title,
                                 description,
                                 href,
-                                cta = "Подробнее",
+                                cta,
                                 logoSrc,
                                 logoBg = "#F3F4F6",
                                 className = "",
                                 target,
                                 rel,
                             }: ProductCardProps) {
+    const t = useTranslations();
+    const linkText = cta ?? t("Common.more");
     return (
         <Link
             href={href}
@@ -46,18 +49,16 @@ export function ProductCard({
             ].join(" ")}
             aria-label={`${title}: ${description}`}
         >
-            {/* Текстовая часть */}
             <div className="flex min-w-0 flex-col justify-between">
                 <h3 className="text-sm text-gray-600">{title}</h3>
                 <p className="mt-2 text-lg font-semibold text-gray-900 leading-snug line-clamp-3">
                     {description}
                 </p>
                 <span className="mt-3 text-blue-600 text-sm font-medium group-hover:underline">
-          {cta}
+          {linkText}
         </span>
             </div>
 
-            {/* Логотип справа */}
             <div
                 className="grid h-16 w-16 shrink-0 place-items-center rounded-xl"
                 style={{ backgroundColor: logoBg }}

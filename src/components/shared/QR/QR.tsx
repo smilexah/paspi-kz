@@ -2,6 +2,7 @@
 
 import { Container } from "../container";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type QrProps = {
     qrSrc: string;
@@ -9,11 +10,14 @@ type QrProps = {
 };
 
 export function QR({ qrSrc, alt = "QR Code" }: QrProps) {
+    const t = useTranslations("QR");
     return (
         <section className="bg-[#f5f5f5] py-12">
             <Container className="flex flex-col items-center justify-center">
                 <h2 className="mb-6 text-center text-2xl font-medium md:text-3xl">
-                    Сканируйте, чтобы перейти <br /> в приложение Kaspi.kz
+                    {t.rich("heading", {
+                        br: () => <br />,
+                    })}
                 </h2>
 
                 <div className="rounded-2xl bg-white p-4 shadow">

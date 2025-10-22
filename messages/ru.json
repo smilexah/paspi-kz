@@ -8,5 +8,180 @@
     "title": "Упс! Такой страницы больше нет.",
     "description": "К сожалению, запрашиваемая страница не существует или была перемещена.",
     "back": "На главную"
+  },
+  "Common": {
+    "more": "Подробнее"
+  },
+  "Modal": {
+    "close": "Закрыть"
+  },
+  "Partners": {
+    "title": "Партнеры"
+  },
+  "Header": {
+    "clients": "Клиентам",
+    "business": "Бизнесу",
+    "guide": "Kaspi Гид",
+    "products": "Продукты Kaspi.kz",
+    "services": "Сервисы Kaspi.kz",
+    "menu": {
+      "clientsLeft": {
+        "gold": "Kaspi Gold",
+        "goldkid": "Kaspi Gold для ребенка",
+        "red": "Kaspi Red",
+        "deposit": "Kaspi Депозит",
+        "saveDeposit": "Накопительный Депозит",
+        "purchaseCredit": "Кредит на Покупки",
+        "installment": "Рассрочка",
+        "ipCredit": "Кредит для ИП",
+        "cashCredit": "Кредит Наличными",
+        "autoCredit": "Автокредит на Kolesa.kz"
+      },
+      "clientsRight": {
+        "shop": "Магазин",
+        "travel": "Travel",
+        "payments": "Платежи",
+        "mybank": "Мой банк",
+        "transfers": "Переводы",
+        "actions": "Акции",
+        "egov": "Госуслуги",
+        "ads": "Объявления",
+        "guide": "Kaspi Гид"
+      },
+      "businessLeft": {
+        "kaspipay": "Kaspi Pay",
+        "businessCredit": "Бизнес Кредит",
+        "ipCredit": "Кредит для ИП"
+      },
+      "businessRight": {
+        "merchantRegistration": "Продавать в Интернет-магазине на Kaspi.kz",
+        "webpayPartnership": "Принимать платежи с Kaspi.kz",
+        "guide": "Kaspi Гид"
+      }
+    }
+  },
+  "Footer": {
+    "products": "Продукты Kaspi.kz",
+    "services": "Сервисы Kaspi.kz",
+    "forBusiness": "Для Бизнеса",
+    "chatTitle": "Чат с Kaspi Гид",
+    "chatAction": "Написать",
+    "links": {
+      "products": {
+        "gold": "Kaspi Gold",
+        "goldkid": "Kaspi Gold для ребенка",
+        "red": "Kaspi Red",
+        "deposit": "Kaspi Депозит",
+        "saveDeposit": "Накопительный Депозит",
+        "purchaseCredit": "Кредит на Покупки",
+        "installment": "Рассрочка",
+        "ipCredit": "Кредит для ИП",
+        "cashCredit": "Кредит Наличными"
+      },
+      "services": {
+        "shop": "Магазин",
+        "travel": "Travel",
+        "payments": "Платежи",
+        "mybank": "Мой банк",
+        "transfers": "Переводы",
+        "actions": "Акции",
+        "egov": "Госуслуги",
+        "ads": "Объявления",
+        "guide": "Kaspi Гид"
+      },
+      "business": {
+        "kaspipay": "Kaspi Pay",
+        "businessCredit": "Бизнес Кредит",
+        "ipCredit": "Кредит для ИП",
+        "merchantRegistration": "Продавать в Интернет-магазине на Kaspi.kz",
+        "webpayPartnership": "Принимать платежи с Kaspi.kz",
+        "guide": "Kaspi Гид",
+        "partnerCabinet": "Кабинет партнера Kaspi Pay"
+      },
+      "misc": {
+        "hotline9999": "9999 Бесплатно с мобильного",
+        "branches": "Отделения Kaspi.kz",
+        "terms": "Пользовательское соглашение",
+        "jobs": "Вакансии",
+        "investorRelations": "Investor Relations",
+        "compliance": "Комплаенс контроль"
+      }
+    },
+    "legal": {
+      "copyright": "© 2012–2025, АО «Kaspi Bank»",
+      "license": "Лицензия на проведение банковских и иных операций и деятельности на рынке ценных бумаг №1.2.245/61 от 03.02.2020, выданная Агентством Республики Казахстан по регулированию и развитию финансового рынка",
+      "corporateSite": "Корпоративный сайт"
+    }
+  },
+  "StepperWithSlider": {
+    "heading": "Как принимать оплату?",
+    "arrowPrev": "Назад",
+    "arrowNext": "Вперед",
+    "steps": {
+      "1": {"title": "Мобильный\nPOS-терминал", "subtitle": "Кассир указывает сумму и генерирует QR-код для каждой покупки."},
+      "2": {"title": "QR-код на кассе", "subtitle": "Вы распечатываете QR-код и размещаете его на кассе."},
+      "3": {"title": "Удаленная оплата", "subtitle": "Вы можете отправить клиенту счёт для удаленной оплаты через Kaspi.kz."},
+      "4": {"title": "Оплата по ссылке", "subtitle": "Делитесь ссылкой и принимайте оплату в мессенджерах, соцсетях или на сайте."}
+    }
+  },
+  "QR": {
+    "heading": "Сканируйте, чтобы перейти <br /> в приложение Kaspi.kz"
+  },
+  "PopularRoutes": {
+    "heading": "Популярные направления",
+    "arrowPrev": "Назад",
+    "arrowNext": "Вперёд",
+    "cities": {
+      "almaty": "Алматы",
+      "astana": "Астана",
+      "shymkent": "Шымкент",
+      "aktau": "Актау",
+      "atyrau": "Атырау",
+      "aktobe": "Актобе",
+      "turkestan": "Туркестан"
+    }
+  },
+  "GoldStepper": {
+    "title": "Как это работает?",
+    "steps": {
+      "1": "Скачайте приложение Kaspi.kz",
+      "2": "Откройте Kaspi Gold онлайн"
+    }
+  },
+  "SMRMain": {
+    "imageAlt": "Kaspi Travel",
+    "title": "Kaspi Travel",
+    "description": "Авиа и ЖД билеты по выгодным ценам",
+    "primaryButton": "Найти билеты"
+  },
+  "SMRStepper": {
+    "title": "Как это работает?",
+    "steps": {
+      "1": "Скачайте приложение Kaspi.kz",
+      "2": "Покупайте Авиа и ЖД билеты по выгодным ценам онлайн"
+    }
+  },
+  "SMRBenefits": {
+    "title": "Преимущества Kaspi Travel",
+    "items": {
+      "1": "Тысячи направлений\n по низким ценам",
+      "2": "Быстрый возврат\n и обмен",
+      "3": "Оплата с Kaspi Gold\n и в кредит"
+    }
+  },
+  "GoldMain": {
+    "imageAlt": "Kaspi Gold",
+    "title": "Kaspi Gold",
+    "description": "Покупки, переводы, платежи, <br/> снятия без комиссий",
+    "primaryButton": "Открыть Kaspi Gold"
+  },
+  "PaymentsMain": {
+    "imageAlt": "Платежи Kaspi.kz",
+    "title": "Платежи Kaspi.kz",
+    "description": "Без комиссий, более 10 000 услуг",
+    "primaryButton": "Оплатить услуги"
+  },
+  "PaymentMethodCard": {
+    "ctaDefault": "Принимать оплату с Kaspi Pay"
   }
 }

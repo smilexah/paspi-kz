@@ -13,7 +13,6 @@ export const Entrepreneurs = () => {
                 </h2>
 
                 <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Левая колонка — большая карточка (занимает 2 ряда) */}
                     <div className="lg:row-span-2">
                         <BusinessHeroCard
                             title="Kaspi Pay. Приложение для бизнеса"
@@ -30,24 +29,22 @@ export const Entrepreneurs = () => {
                         />
                     </div>
 
-                    {/* Правая верхняя карточка */}
                     <ProductCard
                         title="Бизнес Кредит"
                         description="Без залога и документов. Онлайн за 1 минуту"
                         href="#"
                         cta="Подробнее"
-                        iconSrc="/business/briefcase.svg"
-                        iconBg="#A6E463"
+                        logoSrc="/business/briefcase.svg"
+                        logoBg="#A6E463"
                     />
 
-                    {/* Правая нижняя карточка */}
                     <ProductCard
                         title="Акции Kaspi QR"
                         description="Участвуйте в акциях и увеличивайте свои продажи"
                         href="#"
                         cta="Принять участие"
-                        iconSrc="/business/gift.svg"
-                        iconBg="#F14A37"
+                        logoSrc="/business/gift.svg"
+                        logoBg="#F14A37"
                     />
                 </div>
             </Container>

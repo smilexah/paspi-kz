@@ -49,7 +49,6 @@ function CategoryCard({cat}: { cat: CategoryT }) {
         {cat.title}
       </span>
 
-            {/* фиксируем зону под картинку, чтобы сетка не прыгала */}
             <span className="mt-2 flex h-[112px] items-end justify-center">
         <Image
             src={cat.img}
@@ -82,15 +81,11 @@ export const KaspiShop = () => {
                 </h2>
 
                 <div className="relative">
-                    {/* Вьюпорт Embla */}
                     <div ref={emblaRef} className="overflow-hidden">
-                        {/* Трек */}
                         <div className="flex">
                             {slides.map((page, idx) => (
                                 // КАЖДЫЙ СЛАЙД = целый экран (basis-full)
                                 <div key={idx} className="flex shrink-0 grow-0 basis-full">
-                                    {/* Сетка 5×2 для всех устройств */}
-                                    {/* КАЖДЫЙ СЛАЙД = экран 5×2 (на мобиле 2×5) */}
                                     <div className="
   grid w-full gap-4
   grid-cols-2 grid-rows-5     /* mobile: 2x5 */
@@ -106,7 +101,6 @@ export const KaspiShop = () => {
                         </div>
                     </div>
 
-                    {/* Стрелки */}
                     <button
                         onClick={scrollPrev}
                         aria-label="Назад"

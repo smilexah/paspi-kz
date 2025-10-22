@@ -1,17 +1,19 @@
 "use client";
 
 import {Stepper} from "../../../shared/stepper";
+import {useTranslations} from "next-intl";
 
-const steps = [
-    {number: 1, text: "Скачайте приложение Kaspi.kz"},
-    {number: 2, text: "Покупайте Авиа и ЖД билеты по выгодным ценам онлайн"},
-];
+const stepsFrom = (t: ReturnType<typeof useTranslations>) => ([
+    {number: 1, text: t("steps.1")},
+    {number: 2, text: t("steps.2")},
+]);
 
 export const SMRStepper = () => {
+    const t = useTranslations("SMRStepper");
     return (
         <Stepper
-            title="Как это работает?"
-            steps={steps}
+            title={t("title")}
+            steps={stepsFrom(t)}
             lineColor="#E4573D"
         />
     )
